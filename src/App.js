@@ -18,6 +18,14 @@ const list = [
     points: 5,
     objectID: 1,
   },
+  {
+    title: 'doudou',
+    url: 'https://github.com/reactjs/redux',
+    author: 'lalala',
+    num_comments: 12,
+    points: 15,
+    objectID: 2,
+  },
 ];
 
 class App extends Component {
@@ -40,25 +48,35 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.state.list.map(item =>
-          <div key={item.objectID}>
-            <span>
-              <a href={item.url}>{item.title}</a>
-            </span>
-            <span>{item.author}</span>
-            <span>{item.num_comments}</span>
-            <span>{item.points}</span>
-            <span>
-              <button
-                onClick={() => this.onDismiss(item.objectID)}
-                type="button"> Dismiss
-              </button>
-            </span>
-          </div>
-        )}
+       <Table list={this.state.list} onDismiss={this.onDismiss}/>
       </div>
     );
   }
 }
+
+const Table = (props)=> {
+  return(
+    <table>
+     {props.list.map(item =>
+      <tr key={item.objectID}>
+        <td>
+          <a href={item.url}>{item.title}</a>
+        </td>
+        <td>{item.author}</td>
+        <td>{item.num_comments}</td>
+        <td>{item.points}</td>
+        <td>
+          <button onClick={() => props.onDismiss(item.objectID)}>Dismiss</button>
+        </td>
+      </tr>
+    )}
+    </table>
+  )
+};
+
+const Button = (props) =>
+ <button type="button" onClick={props.onClick}>
+  {props.children}
+</button>
 
 export default App;
