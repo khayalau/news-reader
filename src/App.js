@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const list = [
   {
@@ -66,7 +67,7 @@ const Table = (props)=> {
         <td>{item.num_comments}</td>
         <td>{item.points}</td>
         <td>
-          <button onClick={() => props.onDismiss(item.objectID)}>Dismiss</button>
+          <button onClick={() => props.onDismiss(item.objectID)}>yoyoyo</button>
         </td>
       </tr>
     )}
