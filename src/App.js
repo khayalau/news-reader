@@ -57,7 +57,7 @@ class App extends Component {
 
 const Table = (props)=> {
   return(
-    <table>
+    <table class="table table-bordered table-dark">
      {props.list.map(item =>
       <tr key={item.objectID}>
         <td>
@@ -67,7 +67,7 @@ const Table = (props)=> {
         <td>{item.num_comments}</td>
         <td>{item.points}</td>
         <td>
-          <button onClick={() => props.onDismiss(item.objectID)}>yoyoyo</button>
+          <button class="btn btn-outline-warning" onClick={() => props.onDismiss(item.objectID)}>clickme</button>
         </td>
       </tr>
     )}
