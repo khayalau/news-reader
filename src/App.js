@@ -38,6 +38,16 @@ class App extends Component {
       this.onDismiss = this.onDismiss.bind(this);
   }
 
+  componentDidMount(){
+    console.log('Mounted!');
+    fetch("https://hn.algolia.com/api/v1/search_by_date")
+     .then(response => response.json())
+     .then(responseJson => {
+       this.displayArticles(responseJson.hits);
+     })
+     .catch();
+  }
+  
   onDismiss(id) {
       function isNotId(item) {
           return item.objectID !== id;
